@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="655c759c-9e03-4d1f-88a0-763099e0f6e2" name="test4.profhome-store.ru" url="http://test4.profhome-store.ru">
+        <fileTransfer host="test4.profhome-store.ru" port="22" rootFolder="/var/www" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

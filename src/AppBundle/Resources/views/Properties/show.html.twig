@@ -1,0 +1,44 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Properties:Show{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <div class="row">
+    <div class="col-md-12">
+        <div class="col-md-9">
+          <div class="col-md-9 col-md-offset-5 centered">  <button data-toggle="collapse" data-target="#ADD">Добавить</button>
+
+            <div id="ADD" class="collapse">
+                <form action="/property/add" method="post">
+                    <input type="hidden" name="_method" value="PUT">
+                    <input type="text" name="name">
+                    <input type="text" name="value">
+                    <input type="submit" name="sub_add" value="Добавить">
+                </form>
+            </div>
+          </div>
+            <div class="col-md-9 col-md-offset-5 centered"> <h1>Все значения Properties </h1></div>
+            {% for key,property in properties %}
+        <div class="col-md-9">
+            <div class="col-md-3"> {{ property.PropertyName }}: {{ property.PropertyValue }}</div>
+            <div class="col-md-3"> <button data-toggle="collapse" data-target="#edit{{ property.id }}">Редактировать</button>
+                <div id="edit{{ property.id }}" class="collapse">
+                    <form action="/property/{{ property.id }}/edit" method="post">
+                        <input type="hidden" name="_method" value="PATCH">
+                        <input type="text" name="name" value="{{ property.PropertyName }}">
+                        <input type="text" name="value" value="{{ property.PropertyValue }}">
+                        <input type="submit" name="sub_edit" value="Изменить">
+                    </form>
+                </div></div>
+            <form action="/property/{{ property.id }}/delete" method="post">
+                <input type="hidden" name="_method" value="DELETE">
+                <div class="col-md-3"><button> Удалить</button> </div>
+            </form>
+        </div>
+    {% endfor %}
+        </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}
